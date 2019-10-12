@@ -1,0 +1,8 @@
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+[user]
+	email = dtorkelson@gmail.com
+	name = The Tern
