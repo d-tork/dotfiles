@@ -1,87 +1,19 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2017 Sep 20
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" .vimrc
+" Author: dtork
 
-" Get the defaults that most users want.
+silent! so .vimlocal 			" Source a local .vimrc file (named .vimlocal) for project-specific settings
 
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
+" From Bram Moolenaar
+source $VIMRUNTIME/defaults.vim
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'dhruvasagar/vim-table-mode'
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
-
-silent! so .vimlocal			" Source a local .vimrc file (named .vimlocal) for project-specific settings
-
-source $VIMRUNTIME/defaults.vim
-
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file (restore to previous version)
-  if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
-  endif
-endif
-
-if &t_Co > 2 || has("gui_running")
-  " Switch on highlighting the last used search pattern.
-  set hlsearch
-endif
-
-" Some decent VIM settings for programming
-" These lines come from git-for-windows build-extra repository, along with
-" stuff I've collected from the web
-
-ru! defaults.vim                " Use Enhanced Vim defaults
-set mouse=                      " Reset the mouse setting from defaults
-aug vimStartup | au! | aug END  " Revert last positioned jump, as it is defined below
-let g:skip_defaults_vim = 1     " Do not source defaults.vim again (after loading this system vimrc)
-
+ru! defaults.vim		" Use Enhanced Vim defaults
+set mouse=			" Reset the mouse setting from defaults
 set ai                          " set auto-indenting on for programming
 set showmatch                   " automatically show matching brackets. works like it does in bbedit.
-set vb                          " turn on the "visual bell" - which is much quieter than the "audio blink"
-set laststatus=2                " make the last line where the status is two lines deep so you can see status always
 set showmode                    " show the current mode
-set clipboard=unnamed           " set clipboard to unnamed to access the system clipboard under windows
-set wildmode=list:longest,longest:full   " Better command line completion
 
 " Show EOL type and last modified timestamp, right after the filename
 " Set the statusline
@@ -101,7 +33,90 @@ if &term =~ 'xterm-256color'    " mintty identifies itself as xterm-compatible
   endif
   " set termguicolors           " Uncomment to allow truecolors on mintty
 endif
-"------------------------------------------------------------------------------
+
+"
+" Basic settings and variables {{{
+
+colorscheme desert
+
+syntax on
+filetype indent plugin on		" auto indent for writing code
+set encoding=utf-8
+set visualbell noerrorbells		" don't beep
+set hlsearch				" highlight matches
+set incsearch				" display the match for a search pattern as it's typed
+set ruler				" show the ruler
+set showcmd				" show the current command being typed
+set ignorecase smartcase		" case-insensitive searches (but sensitive when you specifically use a capital letter)
+set clipboard=unnamed			" set clipboard to unnamed to access the system clipboard under Windows
+set wildmode=list:longest,longest:full	" better line completion
+set autoread				" reload the file after changes have been made externally
+set tabstop=4 shiftwidth=4 expandtab	" set default tab/shift/expand
+set nospell				" disable spellcheck (for code)
+set number relativenumber		" line numbers
+set splitbelow				" open new horizontal splits on bottom
+set splitright				" open new vertical splits to right
+set backspace=indent,eol,start		" allow backspacing over everything in insert mode
+let mapleader=","			" leader is comma
+" TODO: check if system is Win or *nix
+set ffs=dos,unix			" line endings for Windoze first for new buffers
+
+
+" End Basic settings and variables }}}
+
+
+" Keyboard shortcuts and remappings {{{
+
+" Run current file as python script
+nnoremap <F5> :w<CR>:!clear;python %<CR>
+inoremap <F5> <Esc>:w<CR>:!clear;python %<CR>
+" Space to toggle folds
+nnoremap <Space> za
+vnoremap <Space> za
+" jj is escape
+inoremap jj <Esc>
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+" Move between windows with Ctrl+<movement>
+nmap <C-h> <C-W>h
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-l> <C-W>l
+" Move between buffers with arrow keys
+nmap <Right> :bnext<CR>
+imap <Right> <Esc>:bnext<CR>
+nmap <Left> :bprev<CR>
+imap <Left> <Esc>:bprev<CR>
+" Insert datetime
+nnoremap <F4> "=strftime("%d%b%Y")<CR>PviwgU
+inoremap <F4> <C-R>=strftime("%d%b%Y")<CR><Esc>viwgUea
+" Mappings/settings for table mode
+nnoremap <leader> tm
+let g:table_mode_corner='|'
+
+" End Keyboard shortcuts and remappings }}}
+
+
+" Auto-commands {{{
+
+aug tork
+	"Remove all autocommands for the current group.
+	au!
+	" .md extension is markdown
+	au BufRead,BufNewFile *.md set ft=markdown foldlevel=2 wrap linebreak textwidth=0 wrapmargin=0 spell
+	if v:version > 703
+		au BufRead,BufNewFile *.md set colorcolumn=80
+	endif
+aug END
+
+au CursorHold,CursorHoldI * checktime	" autoread automatically (after 4 sec I think)
+au FocusGained,BufEnter * :checktime	" same as above, under different conditions
+
+autocmd BufEnter * silent! lcd %:p:h	" changes the window-local current directory to be the same as the dir of the current file
+" set autochdir				" same as above, except it may cause
+" problems with some plugins
+
+" == From Bram Moolenaar==
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
     " Set UTF-8 as the default encoding for commit messages
@@ -123,72 +138,19 @@ if has("autocmd")
       \ match WhiteSpaceEOL /\(^+.*\)\@<=\s\+$/
 endif " has("autocmd")
 
-" Add optional packages.
-"
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-" The ! means the package won't be loaded right away but when plugins are
-" loaded during initialization.
-" NOTE: I am removing the next three lines myself because they're causing
-" problems on The Tern
-"if has('syntax') && has('eval')
-"  packadd! matchit
-"endif
+" End Auto-commands }}}
 
-" My personal changes
-set number			" turn on line numbers
-set relativenumber		" turn on relative numbers
-let mapleader=","		" leader is comma
-" jj is escape
-inoremap jj <esc>		
-set ruler			" show the ruler
-set showcmd			" show the current command being typed
-set incsearch			" display the match for a search pattern when halfway typing it
-set hlsearch			" highlight matches
-" turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>	
-" use F7 to manually check for file changes (following two commands)
-nnoremap <F7> :checktime<CR>
-map! <F7> <C-O>:checktime<CR>
-set ignorecase smartcase	" case-insensitive searches (but sensitive when you specifically use a capital letter)
 
-set autoread			" reload the file after changes have been made externally
-au CursorHold,CursorHoldI * checktime	" autoread automatically (after 4 sec I think)
-au FocusGained,BufEnter * :checktime	" same as above, under different conditions
+" Quick Editing {{{
 
-" cycle through split windows
-nnoremap <leader>w <C-W>w
-"set foldmethod=manual		" activate folding (VI.SE #9543)
-"set foldcolumn=2
-"let g:markdown_folding = 1	" turn on folding for markdown
-"let g:markdown_enable_folding = 1
-" Change color scheme to zenburn
-set t_Co=256
-colorscheme zenburn
+" Edit .bashrc
+nmap <silent> <leader>eb :e ~/.bashrc<CR>
+" Edit .vimrc
+nmap <silent> <leader>ev :e ~/.vimrc<CR>
+" Edit .gitconfig
+nmap <silent> <leader>eg :e ~/.gitconfig<CR>
+" Open a scratch file
+nmap <silent> <leader>eh :e ~/scratch.txt<CR>
 
-" change backup locations (SO 607435)
-set backupdir=~/.vim/tmp//,.
-set directory=~/.vim/tmp//,.
-
-set wildmode=list:longest,longest:full	" Better command line completion
-
-" Move between windows with arrow keys
-nmap <Left> <C-W>h
-nmap <Right> <C-W>l
-nmap <Up> <C-W>k
-nmap <Down> <C-W>j
-
-autocmd BufEnter * silent! lcd %:p:h	" changes the window-local current directory to be the same as the dir of the current file
-
-" Set tab stops for specific file types
-autocmd FileType markdown setlocal expandtab shiftwidth=4 tabstop=4
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
-autocmd FileType sql setlocal shiftwidth=4 tabstop=4
-
-set splitbelow				" Open new horizontal splits on bottom
-set splitright				" Open new vertical splits to right
-
-" Auto indent for writing code
-syntax on
-filetype indent plugin on
+" End Quick Editing }}}
 
