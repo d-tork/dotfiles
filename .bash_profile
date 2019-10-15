@@ -19,3 +19,8 @@ alias config='/usr/local/bin/git --git-dir=/Users/admin/.cfg/ --work-tree=/Users
 #fi
 #unset __conda_setup
 # <<< conda init <<<
+
+PS1='\[\033]0;$MSYSTEM:\w\007
+\033[32m\]\u@\h \[\033[33m\w\033[1;36m\]$(fast_git_ps1)\033[0m\]
+$ '
+
