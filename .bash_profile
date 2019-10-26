@@ -1,7 +1,8 @@
-export PATH="/Users/admin/anaconda3/bin:$PATH"
+# export PATH="/Users/admin/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 alias onedrive-sync='/Users/admin/bin/sync-to-onedrive.sh'
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias rpi='ssh pi@192.168.1.177'
 
 # added by Anaconda3 2019.07 installer
 # >>> conda init >>>
@@ -37,3 +38,19 @@ function color_my_prompt {
     export PS1="$__user_and_host $__cur_location $__git_branch_color$__git_branch$__prompt_tail$__last_color "
 }
 color_my_prompt
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/dtork/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/dtork/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/dtork/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/dtork/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
