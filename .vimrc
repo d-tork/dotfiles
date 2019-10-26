@@ -4,7 +4,7 @@
 silent! so .vimlocal 			" Source a local .vimrc file (named .vimlocal) for project-specific settings
 
 " From Bram Moolenaar
-source $VIMRUNTIME/defaults.vim
+silent! source $VIMRUNTIME/defaults.vim
 if &compatible
   set nocompatible               " Be iMproved
 endif
