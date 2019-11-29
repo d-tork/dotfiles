@@ -34,6 +34,42 @@ if &term =~ 'xterm-256color'    " mintty identifies itself as xterm-compatible
   " set termguicolors           " Uncomment to allow truecolors on mintty
 endif
 
+
+" Neobundle {{{
+
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+NeoBundle 'dhruvasagar/vim-table-mode'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+" End Neobundle }}}
+
 "
 " Basic settings and variables {{{
 
@@ -113,7 +149,7 @@ aug tork
 	"Remove all autocommands for the current group.
 	au!
 	" .md extension is markdown
-	au BufRead,BufNewFile *.md set ft=markdown foldlevel=2 wrap linebreak textwidth=0 wrapmargin=0 spell
+	au BufRead,BufNewFile *.md set ft=markdown foldlevel=2 wrap linebreak textwidth=0 wrapmargin=0 
 	if v:version > 703
 		au BufRead,BufNewFile *.md set colorcolumn=80
 	endif
