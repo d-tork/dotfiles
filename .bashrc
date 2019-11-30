@@ -116,8 +116,8 @@ fi
 # Set default python
 alias python='/usr/local/bin/python3.7'
 
-# Miniconda
-export PATH="/home/pi/miniconda3/bin:$PATH"
-
 # Config alias for dotfile management
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Miniconda activation
+. /home/pi/miniconda3/etc/profile.d/conda.sh
