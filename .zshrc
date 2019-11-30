@@ -100,3 +100,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias python='/usr/local/bin/python3'
