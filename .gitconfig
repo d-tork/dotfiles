@@ -1,8 +1,10 @@
+# Mittelos Bioscience - gitconfig
+
 [alias]
-	st = status
-	ci = commit
 	co = checkout
+	ci = commit
+	st = status
 	br = branch
 [user]
 	email = dtorkelson@gmail.com
-	name = The Tern
+	name = "Daniel Torkelson"
