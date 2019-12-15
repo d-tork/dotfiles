@@ -102,5 +102,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias python='/usr/local/bin/python3'
+alias nord='sudo openvpn --config ~/.nord/ovpn_udp/us3250.nordvpn.com.udp.ovpn --auth-user-pass ~/.nord/upfile --auth-retry interact'
 
-# PowerLevel theme
+# Point to openvpn
+export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.8/sbin
