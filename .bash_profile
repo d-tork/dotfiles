@@ -6,27 +6,6 @@ alias rpi='ssh pi@192.168.1.177'
 alias python='/usr/local/bin/python3'
 alias ll='ls -lhAG'
 
-# added by Anaconda3 2019.07 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/admin/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    \eval "$__conda_setup"
-#else
-#    if [ -f "/Users/admin/anaconda3/etc/profile.d/conda.sh" ]; then
-#        . "/Users/admin/anaconda3/etc/profile.d/conda.sh"
-#        CONDA_CHANGEPS1=false conda activate base
-#    else
-#        \export PATH="/Users/admin/anaconda3/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
-# <<< conda init <<<
-
-#PS1='\[\033]0;$MSYSTEM:\w\007
-#\033[32m\]\u@\h \[\033[33m\w\033[1;36m\]$(fast_git_ps1)\033[0m\]
-#$ '
-
 # PS1 prompt
 # https://stackoverflow.com/questions/4133904/ps1-line-with-git-current-branch-and-colors
 function color_my_prompt {
