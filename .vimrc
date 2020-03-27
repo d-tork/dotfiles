@@ -34,6 +34,44 @@ if &term =~ 'xterm-256color'    " mintty identifies itself as xterm-compatible
   " set termguicolors           " Uncomment to allow truecolors on mintty
 endif
 
+
+"NeoBundle Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+  endif
+
+" Required:
+set runtimepath+=/Users/dtork/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('/Users/dtork/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'dhruvasagar/vim-table-mode'
+
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
 "
 " Basic settings and variables {{{
 
@@ -59,7 +97,7 @@ set splitright				" open new vertical splits to right
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 let mapleader=","			" leader is comma
 " TODO: check if system is Win or *nix
-set ffs=dos,unix			" line endings for Windoze first for new buffers
+set ffs=unix,dos			" line endings for Unix first for new buffers, then Windoze 
 
 
 " End Basic settings and variables }}}
