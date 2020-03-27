@@ -98,6 +98,14 @@ set backspace=indent,eol,start		" allow backspacing over everything in insert mo
 let mapleader=","			" leader is comma
 " TODO: check if system is Win or *nix
 set ffs=unix,dos			" line endings for Unix first for new buffers, then Windoze 
+" Change to thin cursor in insert mode
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set ttimeout
+set ttimeoutlen=1
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
+set ttyfast
 
 
 " End Basic settings and variables }}}
