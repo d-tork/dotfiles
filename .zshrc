@@ -9,6 +9,8 @@ export ZSH="/Users/dtork/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,13 +70,16 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git virtualenv vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# Fix tmux xterm colors
+export TERM="xterm-256color"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -85,6 +90,29 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+
+# Keybindings - vi mode
+#bindkey -v
+function zle-keymap-select zle-line-init
+{
+    # change cursor shape in iTerm2
+    case $KEYMAP in
+        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+        viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+    esac
+
+    zle reset-prompt
+    zle -R
+}
+
+function zle-line-finish
+{
+    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -97,11 +125,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python="python3"
 alias onedrive-sync='/Users/dtork/bin/sync-to-onedrive.sh'
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rpi='ssh pi@192.168.1.177'
-source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+alias ubuntu='ssh dtork@192.168.252.154'
+
+# Choose theme for vanilla ZSH (but I'm using Oh-My-Zsh, so it's chosen above
+#source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -118,3 +148,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dtork/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dtork/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dtork/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dtork/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

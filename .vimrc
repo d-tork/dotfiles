@@ -89,7 +89,7 @@ set ignorecase smartcase		" case-insensitive searches (but sensitive when you sp
 set clipboard=unnamed			" set clipboard to unnamed to access the system clipboard under Windows
 set wildmode=list:longest,longest:full	" better line completion
 set autoread				" reload the file after changes have been made externally
-set tabstop=4 shiftwidth=4 expandtab	" set default tab/shift/expand
+set tabstop=4 shiftwidth=4 noexpandtab	" set default tab/shift/keep tab as tab, not spaces
 set nospell				" disable spellcheck (for code)
 set number relativenumber		" line numbers
 set splitbelow				" open new horizontal splits on bottom
@@ -139,6 +139,8 @@ inoremap <F4> <C-R>=strftime("%d%b%Y")<CR><Esc>viwgUea
 " Mappings/settings for table mode
 nnoremap <leader> tm
 let g:table_mode_corner='|'
+" Replace text that's selected in visual mode
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>
 
 " End Keyboard shortcuts and remappings }}}
 
