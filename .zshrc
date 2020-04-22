@@ -128,7 +128,7 @@ zle -N zle-keymap-select
 alias onedrive-sync='/Users/dtork/bin/sync-to-onedrive.sh'
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rpi='ssh pi@192.168.1.177'
-alias ubuntu='ssh dtork@192.168.252.154'
+alias ubuntu='ssh dtork@192.168.252.128'
 
 # Choose theme for vanilla ZSH (but I'm using Oh-My-Zsh, so it's chosen above
 #source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
