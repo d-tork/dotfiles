@@ -43,10 +43,12 @@ Host your_alias_name
 	66.90.115.178 mycomputer
 	```
 
-### Move SSH server to another port
+### Move SSH server to another port (later idea)
 https://thepcspy.com/read/making-ssh-secure/
 
-## Install and upgrade Vim
+## Software
+
+### Vim
 1. add the backport PPA
 	```
 	sudo add-apt-repository ppa:jonathonf/vim
@@ -57,11 +59,16 @@ https://thepcspy.com/read/making-ssh-secure/
 	sudo apt install vim
 	```
 
-## VNC Setup
+### Git
+```
+sudo apt-get install vim
+```
+
+## VNC 
 1. Install RealVNC Server from realvnc.com
 2. Run it, login with RealVNC account, adding the computer to my team
 
-## Install Truecrypt
+## Truecrypt
 https://www.configserverfirewall.com/ubuntu-linux/install-truecrypt-ubuntu/
 
 ```
