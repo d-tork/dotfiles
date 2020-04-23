@@ -6,7 +6,7 @@ Prior to the installation make sure you have committed the alias to your `.bashr
 
 ```
 $ which git  # find out where your git is located
-/usr/local/bin/git 
+/usr/bin/git 
 $ alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ```
 
