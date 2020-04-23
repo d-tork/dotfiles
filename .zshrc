@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/dtork/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -129,6 +129,7 @@ alias onedrive-sync='/Users/dtork/bin/sync-to-onedrive.sh'
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rpi='ssh pi@192.168.1.177'
 alias ubuntu='ssh dtork@192.168.252.128'
+alias booz='cd ~/Documents/Booz\ Allen\ Hamilton/OneDrive\ -\ BOOZ\ ALLEN\ HAMILTON/'
 
 # Choose theme for vanilla ZSH (but I'm using Oh-My-Zsh, so it's chosen above
 #source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme

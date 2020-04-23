@@ -9,3 +9,5 @@
 [core]
 	autocrlf = input
     editor = vi
+[pager]
+	branch = false

@@ -27,6 +27,8 @@ Host your_alias_name
 	ServerAliveCountMax 30		# stop refreshing after 1 hr
 ```
 
+This file seems to take precedence over `/etc/hosts` when there is a conflict.
+
 ### Create and trade SSH keys
 1. If you don't have a key already:
 	```
@@ -58,14 +60,49 @@ https://thepcspy.com/read/making-ssh-secure/
 	sudo apt update
 	sudo apt install vim
 	```
+3. Install NeoVimBundle
+	```
+	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
+	sh ./install.sh
+	```
+
+	If this requires root, and the files end up owned by root, you must `chown` them again before NeoVim can be fully installed. Then launch `vim` and run `:NeoBundleInstall`
 
 ### Git
 ```
 sudo apt-get install vim
 ```
 
+### Zsh
+https://linuxhint.com/install_zsh_shell_ubuntu_1804/
+
+1. Install and set as default login shell
+	```
+	sudo apt-get install zsh
+	sudo usermod -s /usr/bin/zsh $(whoami)
+	sudo reboot
+	```
+2. Install ohmyzsh
+	```
+	sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	```
+3. Install powerline fonts and Powerlevel9k theme:
+	```
+	sudo apt-get install powerline fonts-powerline
+	sudo apt-get install zsh-theme-powerlevel9k  # if that does work, try next
+	```
+
+	```
+	git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+	```
+	
+	Then select theme in `~/.zshrc`:
+	```
+	ZSH_THEME="powerlevel9k/powerlevel9k"
+	```
+
 ## VNC 
-1. Install RealVNC Server from realvnc.com
+1. Install RealVNC Server from realvnc.com (or from the Ubuntu software center: `realvnc-vnc-server`)
 2. Run it, login with RealVNC account, adding the computer to my team
 
 ## Truecrypt
