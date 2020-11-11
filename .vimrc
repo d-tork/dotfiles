@@ -141,6 +141,8 @@ nnoremap <leader> tm
 let g:table_mode_corner='|'
 " Replace text that's selected in visual mode
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>
+" Stamping (replace current word with last yanked text)
+nnoremap S diw"0P
 
 " End Keyboard shortcuts and remappings }}}
 
@@ -153,7 +155,7 @@ aug tork
 	" .md extension is markdown
 	au BufRead,BufNewFile *.md set ft=markdown foldlevel=2 wrap linebreak textwidth=0 wrapmargin=0 spell
 	if v:version > 703
-		au BufRead,BufNewFile *.md set colorcolumn=80
+		au BufRead,BufNewFile *.md set colorcolumn=100
 	endif
 aug END
 

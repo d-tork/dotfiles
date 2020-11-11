@@ -35,3 +35,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="/usr/local/opt/ruby/bin:$PATH"

@@ -37,6 +37,10 @@ This file seems to take precedence over `/etc/hosts` when there is a conflict.
 2. Copy your public key to the host's `authorized_keys`
 	```
 	cat ~/.ssh/id_rsa.pub | ssh USER@HOST "cat >> ~/.ssh/authorized_keys"
+
+	or
+
+	ssh-copy-id USER@HOST
 	```
 
 ### Update host aliases
@@ -95,13 +99,13 @@ https://linuxhint.com/install_zsh_shell_ubuntu_1804/
 	```
 	git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 	```
-	
+
 	Then select theme in `~/.zshrc`:
 	```
 	ZSH_THEME="powerlevel9k/powerlevel9k"
 	```
 
-## VNC 
+## VNC
 1. Install RealVNC Server from realvnc.com (or from the Ubuntu software center: `realvnc-vnc-server`)
 2. Run it, login with RealVNC account, adding the computer to my team
 
@@ -115,7 +119,7 @@ sudo apt-get install truecrypt
 sudo visudo -f /etc/sudoers.d/truecrypt
 ```
 
-Add the following line to the file: 
+Add the following line to the file:
 ```
 your_username ALL=(ALL) NOPASSWD:/usr/bin/truecrypt
 ```
@@ -129,3 +133,23 @@ where `your_username` is your Linux username
 ## SE question for solving corrupted MacOS recovery
 * [screenshot to use](https://askubuntu.com/questions/219514/where-to-install-bootloader-when-installing-ubuntu-as-secondary-os)
 * [EFI fallback resources](https://www.rodsbooks.com/efi-bootloaders/fallback.html)
+
+# RPI Setup
+(in no particular order right now)
+
+## Security
+https://www.raspberrypi.org/documentation/configuration/security.md
+
+1. change username
+2. set password
+3. cron job to keep SSH up to date
+4. firewall
+
+## Start to finish home media server in docker
+https://www.smarthomebeginner.com/docker-home-media-server-2018-basic/
+
+## Docker and docker-compose
+https://dev.to/rohansawant/installing-docker-and-docker-compose-on-the-raspberry-pi-in-5-simple-steps-3mgl
+
+## Run PiHole!
+* it's a network-level ad bocker

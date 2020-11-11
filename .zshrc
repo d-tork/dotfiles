@@ -128,7 +128,6 @@ zle -N zle-keymap-select
 alias onedrive-sync='/Users/dtork/bin/sync-to-onedrive.sh'
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias rpi='ssh pi@192.168.1.177'
-alias ubuntu='ssh dtork@192.168.252.128'
 alias booz='cd ~/Documents/Booz\ Allen\ Hamilton/OneDrive\ -\ BOOZ\ ALLEN\ HAMILTON/'
 
 # Choose theme for vanilla ZSH (but I'm using Oh-My-Zsh, so it's chosen above
@@ -155,3 +154,8 @@ if [ -f '/Users/dtork/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/dtork/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dtork/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/sbin:$PATH"
+
+# Add to path for Ruby from Homebrew
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
