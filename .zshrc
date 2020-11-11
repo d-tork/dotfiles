@@ -76,6 +76,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Set text editor in console to act like vim
+set -o vi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Fix tmux xterm colors
