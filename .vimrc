@@ -154,7 +154,7 @@ aug tork
 	" .md extension is markdown
 	au BufRead,BufNewFile *.md set ft=markdown foldlevel=2 wrap linebreak textwidth=0 wrapmargin=0 
 	if v:version > 703
-		au BufRead,BufNewFile *.md set colorcolumn=80
+		au BufRead,BufNewFile *.md set colorcolumn=100
 	endif
 	" .yml or .yaml extension is yaml, requires 2 spaces
 	au FileType yaml execute ':silent! %s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')' 
