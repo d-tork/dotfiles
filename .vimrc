@@ -117,6 +117,9 @@ aug tork
 	if v:version > 703
 		au BufRead,BufNewFile *.md set colorcolumn=80
 	endif
+	" .yml or .yaml extension is yaml, requires 2 spaces
+	au FileType yaml execute ':silent! %s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')' 
+	au FileType yaml set tabstop=2 shiftwidth=2 expandtab
 aug END
 
 au CursorHold,CursorHoldI * checktime	" autoread automatically (after 4 sec I think)
