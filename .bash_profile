@@ -9,3 +9,5 @@ if [ -n "$BASH_VERSION" -a -n "$PS1" ]; then
     . "$HOME/.bashrc"
     fi
 fi
+
+_byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
