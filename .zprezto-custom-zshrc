@@ -1,0 +1,40 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# Source files
+. /Users/admin/.local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# Disabled to see if it speeds up startup or commands
+
+# Aliases
+#alias python='/usr/local/bin/python3'
+alias onedrive-sync='/Users/admin/bin/sync-to-onedrive.sh'
+alias config='/usr/local/bin/git --git-dir=/Users/admin/.cfg/ --work-tree=/Users/admin'
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
+alias ll='ls -lGh'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/admin/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/admin/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/admin/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/admin/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
