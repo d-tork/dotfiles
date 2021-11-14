@@ -1,0 +1,14 @@
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	adog = log --all --decorate --oneline --graph
+[user]
+	email = dtorkelson@gmail.com
+[core]
+	editor = vim
+	autocrlf = input
+[pager]
+    branch = false
+    diff = false
