@@ -13,7 +13,7 @@ $ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 Now clone your dotfiles into a bare repository in a `.cfg` folder
 
 ```
-$ git clone --bare git@github.com:d-tork/dotfiles.git $HOME/.cfg
+$ git clone --bare https://github.com/d-tork/dotfiles.git $HOME/.cfg
 ```
 
 Checkout the actual content from the bare repository
