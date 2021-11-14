@@ -12,3 +12,5 @@
 [pager]
     branch = false
     diff = false
+[pull]
+	rebase = false
