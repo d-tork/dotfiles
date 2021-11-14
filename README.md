@@ -44,6 +44,10 @@ config push
 
 ### Notes to self
 * Each computer has its own branch; constantly rebase on top of master
+	- to fast-forward master branch without checking out:
+	```bash
+	config fetch origin master:master
+	```
 * The master branch controls _very simple baseline configurations_; leave the
 specifics of .zshrc, git username, conda environment, etc. to each branch
 * The master branch .gitconfig does not contain the name field; for that, run
