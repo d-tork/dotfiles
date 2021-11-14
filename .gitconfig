@@ -6,7 +6,9 @@
 	adog = log --all --decorate --oneline --graph
 [user]
 	email = dtorkelson@gmail.com
-	name = The Spine
 [core]
+	editor = vim
 	autocrlf = input
-    editor = vi
+[pager]
+    branch = false
+    diff = false
