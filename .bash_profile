@@ -1,8 +1,7 @@
-# export PATH="/Users/admin/anaconda3/bin:$PATH"  # commented out by conda initialize
 
-alias onedrive-sync='/Users/dtork/bin/sync-to-onedrive.sh'
-alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias rpi='ssh pi@192.168.1.177'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+source $HOME/.autogitconfig.sh
+
 alias python='/usr/local/bin/python3'
 alias ll='ls -lhAG'
 

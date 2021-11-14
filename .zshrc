@@ -125,32 +125,4 @@ zle -N zle-keymap-select
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias onedrive-sync='/Users/dtork/bin/sync-to-onedrive.sh'
-alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias rpi='ssh pi@192.168.1.177'
-alias ubuntu='ssh dtork@192.168.252.128'
-
-# Choose theme for vanilla ZSH (but I'm using Oh-My-Zsh, so it's chosen above
-#source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/dtork/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/dtork/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/dtork/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/dtork/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dtork/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dtork/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/dtork/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dtork/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
