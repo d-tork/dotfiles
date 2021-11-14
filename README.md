@@ -2,7 +2,7 @@
 
 ## Installing on new system
 
-Prior to the installation make sure you have committed the alias to your `.bashrc` or `.bash_profile`
+Prior to the installation make sure you have committed the alias to your `.*rc` or `.bash_profile`
 
 ```
 $ which git  # find out where your git is located
@@ -41,3 +41,11 @@ config add .bashrc
 config commit -m "Add bashrc"
 config push
 ```
+
+### Notes to self
+* Each computer has its own branch; constantly rebase on top of master
+* The master branch controls _very simple baseline configurations_; leave the
+specifics of .zshrc, git username, conda environment, etc. to each branch
+* The master branch .gitconfig does not contain the name field; for that, run
+the `.autogitconfig.sh` script once on your branch to set the name according
+to the login and hostname. 
