@@ -37,7 +37,7 @@ endif
 "
 " Basic settings and variables {{{
 
-colorscheme desert
+colorscheme slate
 
 syntax on
 filetype indent plugin on		" auto indent for writing code
