@@ -114,6 +114,8 @@ aug tork
 	au!
 	" .md extension is markdown
 	au BufRead,BufNewFile *.md set ft=markdown foldlevel=2 wrap linebreak textwidth=0 wrapmargin=0 spell
+	" LaTeX files
+	au BufRead,BufNewFile *.tex colorscheme ron
 	if v:version > 703
 		au BufRead,BufNewFile *.md set colorcolumn=80
 	endif
