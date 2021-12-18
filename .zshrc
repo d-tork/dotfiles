@@ -151,14 +151,14 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="/usr/local/sbin:$PATH"
+
+# Add to path for Ruby from Homebrew
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/dtork/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dtork/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/dtork/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dtork/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-export PATH="/usr/local/sbin:$PATH"
-
-# Add to path for Ruby from Homebrew
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
