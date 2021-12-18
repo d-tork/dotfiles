@@ -86,7 +86,6 @@ set incsearch				" display the match for a search pattern as it's typed
 set ruler				" show the ruler
 set showcmd				" show the current command being typed
 set ignorecase smartcase		" case-insensitive searches (but sensitive when you specifically use a capital letter)
-set clipboard=unnamed			" set clipboard to unnamed to access the system clipboard under Windows
 set wildmode=list:longest,longest:full	" better line completion
 set autoread				" reload the file after changes have been made externally
 set tabstop=4 shiftwidth=4 noexpandtab	" set default tab/shift/keep tab as tab, not spaces
@@ -153,7 +152,10 @@ aug tork
 	"Remove all autocommands for the current group.
 	au!
 	" .md extension is markdown
-	au BufRead,BufNewFile *.md set ft=markdown foldlevel=2 wrap linebreak textwidth=0 wrapmargin=0 spell
+	au BufRead,BufNewFile *.md set ft=markdown foldlevel=2 wrap linebreak textwidth=0 wrapmargin=0
+	au BufRead,BufNewFile *.tex colorscheme deus
+	au BufRead,BufNewFile *.tex setlocal ft=tex foldlevel=2 wrap linebreak 
+		\ textwidth=0 wrapmargin=0 tabstop=4 shiftwidth=4 noexpandtab colorcolumn=100
 	if v:version > 703
 		au BufRead,BufNewFile *.md set colorcolumn=100
 	endif
