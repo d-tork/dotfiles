@@ -207,5 +207,5 @@ nmap <silent> <leader>eh :e ~/scratch.txt<CR>
 " End Quick Editing }}}
 
 " Automatically save and restore folds when a file is closed and re-opened
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+au BufWinLeave *.tex mkview
+au BufWinEnter *.tex silent loadview
