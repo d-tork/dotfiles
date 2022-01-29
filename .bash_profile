@@ -42,3 +42,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+
+# Inline dictionary
+define () { curl -s "dict://dict.org/d:$1" |& less -F }
