@@ -11,3 +11,6 @@ if [ -n "$BASH_VERSION" -a -n "$PS1" ]; then
 fi
 
 _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+
+# Inline dictionary
+define () { curl -s "dict://dict.org/d:$1" |& less -F }
