@@ -117,7 +117,7 @@ aug tork
 	" LaTeX files
 	au BufRead,BufNewFile *.tex colorscheme ron
 	if v:version > 703
-		au BufRead,BufNewFile *.md set colorcolumn=80
+		au BufRead,BufNewFile *.md set colorcolumn=100
 	endif
 	" .yml or .yaml extension is yaml, requires 2 spaces
 	au FileType yaml execute ':silent! %s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')' 
