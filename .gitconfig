@@ -6,11 +6,13 @@
 	adog = log --all --decorate --oneline --graph
 [user]
 	email = dtorkelson@gmail.com
+	name = admin@the-tern
 [core]
 	editor = vim
 	autocrlf = input
+	pager = less -F
 [pager]
     branch = false
-    diff = false
+    diff = true
 [pull]
 	rebase = false
