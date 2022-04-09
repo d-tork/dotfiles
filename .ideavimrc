@@ -1,3 +1,4 @@
 source ~/.vimrc
 set ideajoin
 set clipboard+=ideaput
+nnoremap <leader><space> :nohlsearch<CR>
