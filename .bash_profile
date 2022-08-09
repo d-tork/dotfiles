@@ -17,3 +17,4 @@ define () {
 	curl -s "dict://dict.org/d:$1" |& less -F 
 }
 
+export LESS="-FRX"

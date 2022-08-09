@@ -12,6 +12,6 @@
 	autocrlf = input
 [pager]
     branch = false
-    diff = false
+    diff = true
 [pull]
 	rebase = false
