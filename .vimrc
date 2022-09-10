@@ -170,3 +170,5 @@ nmap <silent> <leader>eh :e ~/scratch.txt<CR>
 
 " End Quick Editing }}}
 
+" Load git-managed plugins in ~/.vim/pack/plugins/start/
+packloadall
