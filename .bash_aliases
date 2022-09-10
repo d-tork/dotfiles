@@ -22,3 +22,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias texclean='rm -f *.toc *.aux *.log *.cp *.fn *.tp *.vr *.pg *.ky'
 alias h='history'
 alias j="jobs -l"
+
+# Version control dotfiles with `config` instead of `git`
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
