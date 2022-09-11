@@ -9,8 +9,8 @@ new_value="$USER@$HOSTNAME"
 git config --global user.name "$new_value"
 
 if [ "${new_value}" == "${previous_value}" ]; then
-       exit 1
-else
        exit 0
+else
+       echo "changed"
 fi
 
