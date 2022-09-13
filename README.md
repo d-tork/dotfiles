@@ -3,18 +3,20 @@ Based on https://www.atlassian.com/git/tutorials/dotfiles
 
 ## Installing on new system
 
-Prior to the installation make sure you have committed the alias to your `.*rc` or `.bash_profile`
+Prior to the installation make sure you have committed the alias to your `.*rc` or `.bash_profile` with the right git executable
 
 ```
 $ which git  # find out where your git is located
 /usr/bin/git 
-$ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+```
+```
+alias config="$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 ```
 
-Now clone your dotfiles into a bare repository in a `.cfg` folder
+Now clone dotfiles into a bare repository in a `.cfg` folder
 
 ```
-$ git clone --bare https://github.com/d-tork/dotfiles.git $HOME/.cfg
+git clone --bare https://github.com/d-tork/dotfiles.git $HOME/.cfg
 ```
 
 Checkout the actual content from the bare repository
@@ -29,7 +31,7 @@ config checkout
 Set the flag showUntrackedFiles to no on this specific (local) repository
 
 ```
-$ config config --local status.showUntrackedFiles no
+config config --local status.showUntrackedFiles no
 ```
 
 ## Usage
