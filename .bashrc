@@ -144,3 +144,6 @@ export LESS="-FRX"
 define () { 
 	curl -s "dict://dict.org/d:$1" |& less -F 
 }
+
+# yamllint config
+YAMLLINT_CONFIG_FILE=$HOME/.yamllint.yaml
