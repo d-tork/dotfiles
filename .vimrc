@@ -123,6 +123,9 @@ aug tork
 	" .yml or .yaml extension is yaml, requires 2 spaces
 	au FileType yaml execute ':silent! %s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')' 
 	au FileType yaml set tabstop=2 shiftwidth=2 expandtab nospell
+
+	" detect Ansible inventories as INI files
+	au BufRead,BufNewFile inventory set ft=dosini
 aug END
 
 au CursorHold,CursorHoldI * checktime	" autoread automatically (after 4 sec I think)
